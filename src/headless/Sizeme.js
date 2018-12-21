@@ -11,6 +11,12 @@ function SizeMe(props) {
     handleUpdateSize();
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("resize", handleUpdateSize)
+
+    return () => window.removeEventListener("resize", handleUpdateSize)
+  })
+
   const handleUpdateSize = () => {
     const ref = myRef.current;
     updateSize({
