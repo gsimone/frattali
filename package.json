@@ -11,6 +11,10 @@
     "styled-components": "^4.1.2"
   },
   "devDependencies": {
+    "eslint": "^5.10.0",
+    "husky": "^1.2.1",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
     "react-scripts": "2.1.1"
   },
   "scripts": {
@@ -27,5 +31,20 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "printWidth": 80,
+    "trailingComma": "es5"
+  }
 }
